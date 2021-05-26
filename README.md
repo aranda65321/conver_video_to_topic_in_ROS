@@ -1,28 +1,50 @@
-# conver_video_to_topic_in_ROS
-Hello, in this repository i will teach to how convert all format video to topic in Ros, then we will convert dato of topic in .bag file
+# Convertir videos a topic en Ros
+_Hola a todos, en este repositorio enseñaré cómo convertir videos de cualquier formatos a topics usando la plataforma de simulacion de robots Ros,  para luego convertir los datos captado en un archivo de datos tipo bag_
 
-#Fist step: we will create the package in ROS
+### Pre requisitos  📋
 
-In a console we execute the following command
+_Debes tener instalado los siguientes softwares y librerias_
 
+```
+Sistema operativo Linux preferiblemete la version ubuntu 19.04
+Instalado ROS con todas sus librerias actualizadas, version Melodic
+Librerias de Python
+Librerias de open_cv
+
+```
+
+
+### Instalación 🔧
+
+
+_Para el correcto funcionamiento del script convert.py debes realizar los siguientes pasos_
+
+_Paso 1: crearemos el paquete en ROS tecleando los siguientes comando en una nueva consola, la llamaremos consola 1_
+
+```
 $ roscore
 
-In a new console we execute the following command
+```
 
+_En una nueva consola ejecutamos el siguiente comando, dejando la consola 1 ejecutandose aparte_
+
+```
 $ cd catkin_ws
 
 $ cd src
+```
+_En este punto crearemos un paquete con el nombre convertvideo y este usaremos rospy, cv_bridge librarys_
 
-now, we will create the package
-
+```
 $  catkin_create_make convertvideo rospy cv_bridge
 
-In this moment we will create a package with the name convertvideo and this use rospy, cv_bridge librarys
+```
 
-#second step: we will create the script in python
+_Paso 2: crearemos un script en python en donde seleccionaremos un video y lo convertiremos a topic, para que luego el codigo de convert.py tenga un topic del cual reciba informacion_
 
- we execute the following command in console
- 
+_Ejecutamos los siguientes comandos_
+
+ ```
  $ cd convertvideo
  
  $ mkdir nodes
@@ -33,10 +55,14 @@ In this moment we will create a package with the name convertvideo and this use 
  
  $ gedit code
  
- now open the text editor and copy, pasted the next code
+ ```
+ _ahora abra el editor de texto y copie, pegue el siguiente código_
  
- you will should change the path of video in the line 77  captura = cv2.VideoCapture('/home/user/catkin_ws/src/p_video/videos/video.mp4')
- 
+ ```
+Deberáscambiar la ruta del video en la línea 77 captura = cv2.VideoCapture ('/ home / user / catkin_ws / src / p_video / videos / video.mp4'), por la ubicacion donde se encuentre el video
+ ```
+_CODIGO_
+ ```
  
 #!/usr/bin/env python
 
@@ -128,11 +154,14 @@ if __name__ == '__main__':
     except rospy.ROSInterruptException:
     
         pass
-
-#
-
-Now we will convert the data published in the topic to a bag file to be used later easily
-in a new console we execute the following command
-$ rosbag record video_to_topic
-now ros saved the file .bag in the /home/user/ and we will have our .bag file where our video will be saved
+ ```
+_Paso 3:_
+```
+Ahora convertiremos los datos publicados en el tema a un archivo bag para poder usarlo más tarde fácilmente
+en una nueva consola ejecutamos el siguiente comando
+$ rosbag grabar video_to_topic
+ahora ros guardó el archivo .bag en / home / user / y tendremos nuestro archivo .bag donde se guardará nuestro video
+```
+## Autores ✒️
+* **Juan Camilo Aranda** - *Desarrollo script* - 
 
