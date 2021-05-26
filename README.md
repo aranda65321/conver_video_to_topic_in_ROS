@@ -162,6 +162,11 @@ en una nueva consola ejecutamos el siguiente comando
 $ rosbag grabar video_to_topic
 ahora ros guardó el archivo .bag en / home / user / y tendremos nuestro archivo .bag donde se guardará nuestro video
 ```
+_Paso 4:_
+```
+Deberas descargar el archivo convert.py, guardalo en la misma ruta donde creaste donde guardaste como script de python, el anterior codigo mostrado
+y luego en una nueva consola escribir python "ruta del archivo convert.py" y presionar enter
+```
 ## Autores ✒️
 * **Juan Camilo Aranda** - *Desarrollo script* - 
 
